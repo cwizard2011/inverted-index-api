@@ -1,0 +1,34 @@
+{
+  "name": "inverted-index-api",
+  "version": "1.0.0",
+  "description": "Inverted Index API",
+  "main": "routes/server.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cwizard2011/inverted-index-api.git"
+  },
+  "keywords": [
+    "Inverted",
+    "Index"
+  ],
+  "author": "Adeoye Peter Adeola",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cwizard2011/inverted-index-api/issues"
+  },
+  "homepage": "https://github.com/cwizard2011/inverted-index-api#readme",
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "jasmine": "^2.8.0",
+    "jasmine-node": "^1.14.5",
+    "supertest": "^3.0.0"
+  }
+}
