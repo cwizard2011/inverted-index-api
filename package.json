@@ -32,6 +32,8 @@
     "supertest": "^3.0.0"
   },
   "devDependencies": {
+    "babel-preset-env": "^1.6.0",
+    "gulp-babel": "^7.0.0",
     "gulp-istanbul-report": "0.0.1"
   }
 }
