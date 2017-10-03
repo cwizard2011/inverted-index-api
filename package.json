@@ -29,6 +29,7 @@
     "gulp-concat": "^2.6.1",
     "jasmine": "^2.8.0",
     "jasmine-node": "^1.14.5",
+    "jshint": "^2.9.5",
     "supertest": "^3.0.0"
   },
   "devDependencies": {
