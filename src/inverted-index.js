@@ -27,7 +27,8 @@ class InvertedIndex {
      * @param{text},text to be splitted
       */
     static arrayFromText(text){
-        /**code goes here */
+        text = new Set(text.toLowerCase().match(/\s+/g));
+        return Array.from(text);
     }
 
 
