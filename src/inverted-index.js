@@ -24,12 +24,77 @@ class InvertedIndex {
     }
     /** Split string of text into unique word
      * and form array from it
-     * @param{text},text to be splitted
+     * @param {string},text to be splitted
+     * @returns {array}, unique word from the string
       */
     static arrayFromText(text){
         text = new Set(text.toLowerCase().match(/\s+/g));
         return Array.from(text);
     }
+    /** Method to get all contents of JSON file
+     * @param {array} jsonFile, array of book objects
+     * @returns {string}, a string mixture of both title and text
+     */
+    static bookContent(jsonFile) {
+        let bookContent = '';
+        bookContent.forEach((book) => {
+            bookContent += `${book.title} ${book.text}`;
+        })
+        return bookContent.trim();
+    }
+    /** The method will read the file and verify it's valid
+     * create an index of the words in it
+     * @param {string} fileName , the name of the book to
+     * be indexed
+     * @param {string} fileContent, the content of the JSON array
+     * @returns {object} returns a string
+     */
+    createIndex(fileName, fileContent) {
+        if (!fileName || fileContent === undefined) {
+            throw new Error('Improper arguements');
+        }
+        if (!Array.isArray(fileContent)) {
+            throw new Error('Not JSON array');
+        }
+        if (!fileContent.length) {
+            throw new Error('Empty JSON array');
+        }
+        try {
+            if (InvertedIndex
+                .isFileMalformed(fileContent)) {
+                throw new Error('Malformed file');
+            }
+        } catch (err) {
+            throw new Error('Malformed file');
+        }
+        const index = {}
+        const allFileContent = InvertedIndex
+        .arrayFromText(InvertedIndex.bookContent(fileContent));
+        let eachContent;
+
+        fileContent.forEach((book, filePath) => {
+            eachContent = book;
+            eachContent = new Set(`${eachContent.title} ${eachContent.text} `);
+
+            allFileContent.forEach((word) => {
+                if(eachContent.has(word)) {
+                    if (word in index) index[word].push(filePath);
+                    else index[word] = [filePath];
+                }
+            })
+        })
+        this.indices[fileName] = index;
+        return JSON.stringify(index);
+    }
+    /** Method to search the already created index
+     * @param {object} indices - indices to be searched
+     * @param {string} fileName - name of the file to be
+     * searched
+     * @param {string|array} terms - search terms
+     * @returns {object} - contains the location of each
+     * terms
+     */
+
 
 
 }

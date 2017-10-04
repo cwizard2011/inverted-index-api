@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/cwizard2011/inverted-index-api#readme",
   "dependencies": {
+    "backtick": "^0.3.2",
     "dotenv": "^4.0.0",
     "es6": "0.0.7",
     "gulp": "^3.9.1",
