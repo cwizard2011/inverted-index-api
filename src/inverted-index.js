@@ -1,11 +1,10 @@
-"use strict";
 /** Inverted Index Class
- * @Author: Adeoye Peter Adeola <cwizard2011@gmail.com>
- * @class
+ *  @Author: Adeoye Peter Adeola <cwizard2011@gmail.com>
+ *  @class
  */
 class InvertedIndex {
     /** @constructor
-     * initialises to empty object
+     *  initialises to empty object
      */
     constructor () {
         this.indices = {};

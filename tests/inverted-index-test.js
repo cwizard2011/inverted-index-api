@@ -1,18 +1,17 @@
-"use strict";
 /**Inverted index test 
  * @Author: Adeoye Peter Adeola
  */
-import InvertedIndex from '../src/inverted-index.js'
-import valid from '../fixtures/valid.json'
-import book1 from '../fixtures/book1.json'
-import malformed from '../fixtures/malformed.json'
-import bad from '../fixtures/bad.json'
-import searchValid from '../fixtures/search-valid.json'
-import searchAll from '../fixtures/search-all.json'
+import InvertedIndex from '../src/inverted-index.js';
+import valid from '../fixtures/valid.json';
+import book1 from '../fixtures/book1.json';
+import malformed from '../fixtures/malformed.json';
+import bad from '../fixtures/bad.json';
+import searchValid from '../fixtures/search-valid.json';
+import searchAll from '../fixtures/search-all.json';
 
 const invertedIndexTest = new InvertedIndex();
 
-describe ('Inverted Index Test', () =>{
+describe('Inverted Index Test', () => {
     describe('Is createIndex properly called?', () => {
         it('should throw, Improper arguements', () => {
             expect(() => {invertedIndexTest.createIndex();} )
@@ -26,11 +25,11 @@ describe ('Inverted Index Test', () =>{
                 .toThrow('Empty JSON array');
 
         })
-        it('should throw, not JSON array', () =>{
+        it('should throw, not JSON array', () => {
             expect(() => {invertedIndexTest.createIndex('string',3); })
             .toThrow('not JSON array');
         })
-        it('should throw, not JSON array', () =>{
+        it('should throw, not JSON array', () => {
             expect(() => {invertedIndexTest.createIndex('string',{}); })
             .toThrow('not JSON array');
         })
