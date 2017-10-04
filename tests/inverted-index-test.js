@@ -30,7 +30,7 @@ describe('Inverted Index Test', () => {
             .toThrow('not JSON array');
         })
         it('should throw,` not JSON array`', () => {
-            expect(() => {invertedIndexTest.createIndex('string',{}); })
+            expect(() => {invertedIndexTest.createIndex('string' ,{ }); })
             .toThrow('not JSON array');
         })
         it('should throw, `Improper file name`', () => {
