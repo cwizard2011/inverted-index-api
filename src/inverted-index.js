@@ -10,8 +10,8 @@ class InvertedIndex {
         this.indices = {};
     }
     /** check if the file is Malformed
-     * @param{object}, json file
-     * result return boolean
+     *  @param{object}, json file
+     *  result return boolean
      */
     static isFileMalformed(jsonFile){
         let result = false;
@@ -23,9 +23,9 @@ class InvertedIndex {
         return result;
     }
     /** Split string of text into unique word
-     * and form array from it i.e tokens
-     * @param {string},text to be splitted
-     * @returns {array}, unique word from the string
+     *  and form array from it i.e tokens
+     *  @param {string},text to be splitted
+     *  @returns {array}, unique word from the string
       */
     static arrayFromText(text){
         text = new Set(text.toLowerCase().match(/\s+/g));
@@ -43,11 +43,11 @@ class InvertedIndex {
         return bookContent.trim();
     }
     /** The method will read the file and verify it's valid
-     * create an index of the words in it
-     * @param {string} fileName , the name of the book to
-     * be indexed
-     * @param {string} fileContent, the content of the JSON array
-     * @returns {object} returns a string
+     *  create an index of the words in it
+     *  @param {string} fileName , the name of the book to
+     *  be indexed
+     *  @param {string} fileContent, the content of the JSON array
+     *  @returns {object} returns a string
      */
 
      
@@ -92,12 +92,12 @@ class InvertedIndex {
         return JSON.stringify(index);
     }
     /** Method to search the already created index
-     * @param {object} indices - indices to be searched
-     * @param {string} fileName - name of the file to be
-     * searched
-     * @param {string|array} terms - search terms
-     * @returns {object} - contains the location of each
-     * terms
+     *  @param {object} indices - indices to be searched
+     *  @param {string} fileName - name of the file to be
+     *  searched
+     *  @param {string|array} terms - search terms
+     *  @returns {object} - contains the location of each
+     *  terms
      */
 
 
