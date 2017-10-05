@@ -49,6 +49,8 @@ class InvertedIndex {
      * @param {string} fileContent, the content of the JSON array
      * @returns {object} returns a string
      */
+
+     /**Read file and check for errors */
     createIndex(fileName, fileContent) {
         if (!fileName || fileContent === undefined) {
             throw new Error('Improper arguements');
@@ -67,14 +69,29 @@ class InvertedIndex {
         } catch (err) {
             throw new Error('Malformed file');
         }
+        /**If no error found, create a method index to empty array
+         * read all file content and create a variable for each
+         * book content
+         */
         const index = {}
         const allFileContent = InvertedIndex
         .arrayFromText(InvertedIndex.bookContent(fileContent));
         let eachContent;
 
+        /**Read the file path for each book, and
+         * set each content of title and text
+         *
+         */
+
         fileContent.forEach((book, filePath) => {
             eachContent = book;
-            eachContent = new Set(`${eachContent.title} ${eachContent.text} `);
+            eachContent = 
+            new Set(`${eachContent.title} ${eachContent.text} `);
+
+            /** Create index of the word and push into 
+             * filepath
+             * and return the string of JSON book index
+             */
 
             allFileContent.forEach((word) => {
                 if(eachContent.has(word)) {
