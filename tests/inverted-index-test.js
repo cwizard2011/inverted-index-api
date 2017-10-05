@@ -49,7 +49,9 @@ describe('Inverted Index Test', () => {
             .toThrow(Error('Malformed file'));
             
 
-        })
+        });
 
-    })
+    });
+    describe
+
 })

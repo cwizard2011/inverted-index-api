@@ -23,7 +23,7 @@ class InvertedIndex {
         return result;
     }
     /** Split string of text into unique word
-     * and form array from it
+     * and form array from it i.e tokens
      * @param {string},text to be splitted
      * @returns {array}, unique word from the string
       */
@@ -32,8 +32,8 @@ class InvertedIndex {
         return Array.from(text);
     }
     /** Method to get all contents of JSON file
-     * @param {array} jsonFile, array of book objects
-     * @returns {string}, a string mixture of both title and text
+     *  @param {array} jsonFile, array of book objects
+     *  @returns {string}, a string mixture of both title and text
      */
     static bookContent(jsonFile) {
         let bookContent = '';
@@ -50,7 +50,7 @@ class InvertedIndex {
      * @returns {object} returns a string
      */
 
-     /**Read file and check for errors */
+     
     createIndex(fileName, fileContent) {
         if (!fileName || fileContent === undefined) {
             throw new Error('Improper arguements');
@@ -62,36 +62,24 @@ class InvertedIndex {
             throw new Error('Empty JSON array');
         }
         try {
-            if (InvertedIndex
-                .isFileMalformed(fileContent)) {
+            if (InvertedIndex.isFileMalformed(fileContent)) {
                 throw new Error('Malformed file');
             }
         } catch (err) {
             throw new Error('Malformed file');
         }
-        /**If no error found, create a method index to empty array
-         * read all file content and create a variable for each
-         * book content
-         */
+        
         const index = {}
-        const allFileContent = InvertedIndex
-        .arrayFromText(InvertedIndex.bookContent(fileContent));
+        const allFileContent = InvertedIndex.arrayFromText(InvertedIndex.bookContent(fileContent));
         let eachContent;
 
-        /**Read the file path for each book, and
-         * set each content of title and text
-         *
-         */
-
+        
         fileContent.forEach((book, filePath) => {
             eachContent = book;
             eachContent = 
             new Set(`${eachContent.title} ${eachContent.text} `);
 
-            /** Create index of the word and push into 
-             * filepath
-             * and return the string of JSON book index
-             */
+            
 
             allFileContent.forEach((word) => {
                 if(eachContent.has(word)) {
