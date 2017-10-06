@@ -60,11 +60,11 @@ class InvertedIndex {
         }
     try {
       if (InvertedIndex.isFileMalformed(fileContent)) {
-          throw new Error('Malformed file');
+        throw new Error('Malformed file');
         }
     } catch (err) {
         throw new Error('Malformed file');
-      }    
+      }
     const index = {};
     const allFileContent = InvertedIndex.arrayFromText(InvertedIndex.bookContent(fileContent));
     let eachContent;
@@ -74,9 +74,9 @@ class InvertedIndex {
       eachContent = new Set(`${eachContent.title} ${eachContent.text} `);
 
     allFileContent.forEach((word) => {
-      if (eachContent.has(word)) {
-        if (word in index) index[word].push(filePath);
-        else index[word] = [filePath];
+        if (eachContent.has(word)) {
+          if (word in index) index[word].push(filePath);
+          else index[word] = [filePath];
         }
       })
     })
