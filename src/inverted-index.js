@@ -7,33 +7,33 @@ class InvertedIndex {
      *  initialises to empty object
      */
     constructor () {
-        this.indices = {};
+        this.indices =  {};
     }
     /** check if the file is Malformed
      *  @param{object}, json file
      *  result return boolean
      */
-    static isFileMalformed(jsonFile){
+    static isFileMalformed(jsonFile) {
         let result = false;
-        for(let i=0; i<jsonFile.length; i+=1){
-            result = !("title" in jsonFile[i] 
-            && "text" in jsonFile[i])
+        for(let i = 0; i < jsonFile.length; i += 1) {
+            result = !("title" in jsonFile[i] && "text" in jsonFile[i]);
             if (result) break;
         }
         return result;
     }
-    /** Split string of text into unique word
+    /** Split strings of text into unique word
      *  and form array from it i.e tokens
      *  @param {string},text to be splitted
-     *  @returns {array}, unique word from the string
+     *  @returns {array}, unique word from the strings
       */
     static arrayFromText(text){
         text = new Set(text.toLowerCase().match(/\s+/g));
         return Array.from(text);
     }
     /** Method to get all contents of JSON file
-     *  @param {array} jsonFile, array of book objects
+     *  @param {array} jsonFile, array of book objects 
      *  @returns {string}, a string mixture of both title and text
+     *  i.e JASON content flattened
      */
     static bookContent(jsonFile) {
         let bookContent = '';
@@ -49,8 +49,7 @@ class InvertedIndex {
      *  @param {string} fileContent, the content of the JSON array
      *  @returns {object} returns a string
      */
-
-     
+    
     createIndex(fileName, fileContent) {
         if (!fileName || fileContent === undefined) {
             throw new Error('Improper arguements');
