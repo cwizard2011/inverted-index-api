@@ -36,11 +36,11 @@ class InvertedIndex {
      *  i.e JASON content flattened
      */
     static bookContent(jsonFile) {
-        let bookContent = '';
-        bookContent.forEach((book) => {
-            bookContent += `${book.title} ${book.text}`;
+        let bookedContent = '';
+        bookedContent.forEach((book) => {
+            bookedContent += `${book.title} ${book.text}`;
         })
-        return bookContent.trim();
+        return bookedContent.trim();
     }
     /** The method will read the file and verify it's valid
      *  create an index of the words in it
