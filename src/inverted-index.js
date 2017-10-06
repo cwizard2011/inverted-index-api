@@ -16,7 +16,7 @@ class InvertedIndex {
     static isFileMalformed(jsonFile) {
         let result = false;
     for(let i = 0; i < jsonFile.length; i += 1) {
-      result = !("title" in jsonFile[i] && "text" in jsonFile[i]);
+      result = !('title' in jsonFile[i] && 'text' in jsonFile[i]);
       if (result) break;
         }
         return result;
@@ -28,13 +28,13 @@ class InvertedIndex {
    */
   static arrayFromText(text){
         text = new Set(text.toLowerCase().match(/\s+/g));
-        return Array.from(text);
+    return Array.from(text);
     }
-    /** Method to get all contents of JSON file
-     *  @param {array} jsonFile, array of book objects 
-     *  @returns {string}, a string mixture of both title and text
-     *  i.e JASON content flattened
-     */
+  /** Method to get all contents of JSON file
+   *  @param {array} jsonFile, array of book objects 
+   *  @returns {string}, a string mixture of both title and text
+   *  i.e JASON content flattened
+   */
     static bookContent(jsonFile) {
         let bookedContent = '';
         bookedContent.forEach((book) => {
@@ -69,21 +69,21 @@ class InvertedIndex {
       }
         
         const index = {};
-        const allFileContent = InvertedIndex.arrayFromText(InvertedIndex.bookContent(fileContent));
+    const allFileContent = InvertedIndex.arrayFromText(InvertedIndex.bookContent(fileContent));
         let eachContent;
 
         
-        fileContent.forEach((book, filePath) => {
-            eachContent = book;
-        eachContent = 
+    fileContent.forEach((book, filePath) => {
+        eachContent = book;
+      eachContent = 
         new Set(`${eachContent.title} ${eachContent.text} `);
 
             
 
             allFileContent.forEach((word) => {
-                if(eachContent.has(word)) {
+                if (eachContent.has(word)) {
                     if (word in index) index[word].push(filePath);
-                    else index[word] = [filePath];
+          else index[word] = [filePath];
                 }
             })
         })
