@@ -31,7 +31,7 @@ describe('Inverted Index Test', () => {
       expect(invertedIndexTest.createIndex([], [])).toThrow('Improper file name');
         })
     it('should throw, `Malformed file`', () => {
-      expect(invertedIndexTest.createIndex('string', ['title'])).toThrow('Malformed file');         
+      expect(invertedIndexTest.createIndex('string', ['title'])).toThrow('Malformed file');
       expect(invertedIndexTest.createIndex('string', malformed)).toThrow('Malformed file');
       expect(invertedIndexTest.createIndex('string', bad)).toThrow(Error('Malformed file'));
         });
