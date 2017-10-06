@@ -102,7 +102,6 @@ class InvertedIndex {
         let searchTerms = [];
         const result = {};
         const keys = Object.keys(indices);
-
         terms.forEach((term) => {
             if(Array.isArray(term)) {
                 searchTerms.push(...term);
@@ -137,4 +136,5 @@ class InvertedIndex {
         return result[fileName];
     }
 }
+
 export default InvertedIndex;
