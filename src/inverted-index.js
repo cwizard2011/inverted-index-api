@@ -15,7 +15,7 @@ class InvertedIndex {
    */
     static isFileMalformed(jsonFile) {
         let result = false;
-    for(let i = 0; i < jsonFile.length; i += 1) {
+    for (let i = 0; i < jsonFile.length; i += 1) {
       result = !('title' in jsonFile[i] && 'text' in jsonFile[i]);
       if (result) break;
         }
@@ -26,8 +26,8 @@ class InvertedIndex {
    *  @param {string},text to be splitted
    *  @returns {array}, unique word from the strings
    */
-  static arrayFromText(text){
-      text = new Set(text.toLowerCase().match(/\s+/g));
+  static arrayFromText(text) {
+    text = new Set(text.toLowerCase().match(/\s+/g));
     return Array.from(text);
     }
   /** Method to get all contents of JSON file
@@ -36,8 +36,8 @@ class InvertedIndex {
    *  i.e JASON content flattened
    */
   static bookContent(jsonFile) {
-      let bookedContent = '';
-      jsonFile.forEach((book) => {
+    let bookedContent = '';
+    jsonFile.forEach((book) => {
       bookedContent += `${book.title} ${book.text}`;
     })
     return bookedContent.trim();
@@ -68,12 +68,10 @@ class InvertedIndex {
     const index = {};
     const allFileContent = InvertedIndex.arrayFromText(InvertedIndex.bookContent(fileContent));
     let eachContent;
-    
     fileContent.forEach((book, filePath) => {
       eachContent = book;
       eachContent = new Set(`${eachContent.title} ${eachContent.text} `);
-
-    allFileContent.forEach((word) => {
+      allFileContent.forEach((word) => {
         if (eachContent.has(word)) {
           if (word in index) index[word].push(filePath);
           else index[word] = [filePath];
@@ -107,11 +105,11 @@ class InvertedIndex {
       result[index] = {};
     });
     let fileName;
-      if (searchTerms[1] === 'json') {
-        fileName = `${searchTerms[0]}.json`;
-        searchTerms = searchTerms.slice(2);
-      } else {
-          fileName = 'all';
+    if (searchTerms[1] === 'json') {
+      fileName = `${searchTerms[0]}.json`;
+      searchTerms = searchTerms.slice(2);
+    } else {
+        fileName = 'all';
         }
     keys.forEach((index) => {
       searchTerms.forEach((word) => {

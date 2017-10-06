@@ -67,29 +67,28 @@ describe('Inverted Index Test', () => {
   });
   describe('Checks if the `searchIndex` returns valid results', () => {
     invertedIndexTest.createIndex('valid.json', valid);
-        invertedIndexTest.createIndex('book1.json', valid);
-
-        const indices = invertedIndexTest.indices;
-        it('Should return a valid result for one file', () => {
+    invertedIndexTest.createIndex('book1.json', valid);
+    const indices = invertedIndexTest.indices;
+    it('Should return a valid result for one file', () => {
       expect(InvertedIndex.searchIndex(indices, 'valid.json', 'dancing')).toEqual(searchValid);
         });
-        it('Should return a valid result for all files', () => {
-            expect(InvertedIndex.searchIndex(indices, 'dancing')).toEqual(searchAll);
+    it('Should return a valid result for all files', () => {
+      expect(InvertedIndex.searchIndex(indices, 'dancing')).toEqual(searchAll);
         });
-        it('Should return a valid result for all files', () => {
+    it('Should return a valid result for all files', () => {
       expect(InvertedIndex.searchIndex(indices, ['dancing'])).toEqual(searchAll);
         });
-        it('Should return `try not in index`', () => {
+    it('Should return `try not in index`', () => {
       expect(InvertedIndex.searchIndex(indices, 'try.json', 'laughs')).toBe('try.json not in index');
         });
-        it('Should return `{yeh:[]}`', () => {
+    it('Should return `{yeh:[]}`', () => {
       expect(InvertedIndex.searchIndex(indices, 'valid.json', 'yeh')).toEqual({ yeh: [] });
         });
-        const expected = {
-            'valid.json': {yeh: []},
-            'book1.json': {yeh: []}
-        };
-        it('Should return appropriate result', () => {
+    const expected = {
+      'valid.json': {yeh: []},
+      'book1.json': {yeh: []}
+    };
+    it('Should return appropriate result', () => {
       expect(InvertedIndex.searchIndex(indices, 'yeh')).toEqual(expected);
         });
     });
