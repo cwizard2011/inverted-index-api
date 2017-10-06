@@ -7,7 +7,7 @@ class InvertedIndex {
      *  initialises to empty object
      */
     constructor () {
-        this.indices =  {};
+        this.indices = {};
     }
     /** check if the file is Malformed
      *  @param{object}, json file
@@ -25,7 +25,7 @@ class InvertedIndex {
      *  and form array from it i.e tokens
      *  @param {string},text to be splitted
      *  @returns {array}, unique word from the strings
-      */
+     */
     static arrayFromText(text){
         text = new Set(text.toLowerCase().match(/\s+/g));
         return Array.from(text);
