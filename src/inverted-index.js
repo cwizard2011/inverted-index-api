@@ -21,7 +21,7 @@ class InvertedIndex {
     }
     return result;
     }
-  /** @param {json}, Split string of text into unique word
+  /** @param {string}, Split string of text into unique word
    *  and form array from it i.e tokens
    *  @param {string},text to be splitted
    *  @returns {array}, unique word from the strings
