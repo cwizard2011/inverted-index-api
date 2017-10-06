@@ -42,7 +42,7 @@ describe('Inverted Index Test', () => {
             expect(InvertedIndex.isFileMalformed(malformed)).toBe(true);
         })
         it('should return `false` for valid JSON file', () => {
-            expect(() => { InvertedIndex.isFileMalformed(valid); }).toBe(false);
+      expect(() => { InvertedIndex.isFileMalformed(valid); }).toBe(false);
         });
     });
     describe('Check if array or token is formed from file', () => {
@@ -53,14 +53,14 @@ describe('Inverted Index Test', () => {
         const validTokens2 = Array.from(new Set(text2.toLowerCase().split(' ')));
         
         it('Should return an array of unique token', () => {
-            expect(InvertedIndex.arrayFromText(text1)).toBeTruthy();
+      expect(InvertedIndex.arrayFromText(text1)).toBeTruthy();
             expect(InvertedIndex.arrayFromText(text1)).toEqual(validTokens1);
-            expect(InvertedIndex.arrayFromText(text2)).toEqual(validTokens2);
+            expect(() => { InvertedIndex.arrayFromText(text2); }).toEqual(validTokens2);
 
         });
     });
-    describe('Is JSON content properly flattened in the method bookContent?', () => {
-        const expected = 'I love being a developer Being a developer is one of my greatest dream' 
+  describe('Is JSON content properly flattened in the method bookContent?', () => {
+        const expected = 'I love being a developer Being a developer is one of my greatest dream'
         + 'Life is full of mystery Your student today will be your teacher tomorrow, its dancing time';
         it('Should return a string of all titles and texts', () => {
             expect(InvertedIndex.bookContent(book1)).toBe(expected);
