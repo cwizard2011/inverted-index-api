@@ -1,5 +1,5 @@
-/**Inverted index test 
- * @Author: Adeoye Peter Adeola
+/** Inverted index test 
+ *  @Author: Adeoye Peter Adeola
  */
 import InvertedIndex from '../src/inverted-index.js';
 import valid from '../fixtures/valid.json';
@@ -20,8 +20,7 @@ describe('Inverted Index Test', () => {
             .toThrow('improper arguement');
         })
         it('should throw, `Empty JSON array`', () => {
-            expect(() => {invertedIndexTest.
-                createIndex('string', []);})
+            expect(() => {invertedIndexTest.createIndex('string', []);})
                 .toThrow('Empty JSON array');
 
         })
@@ -38,8 +37,7 @@ describe('Inverted Index Test', () => {
             .toThrow('Improper file name');
         })
         it('should throw, `Malformed file`', () => {
-            expect(() => {invertedIndexTest
-                .createIndex('string', ['title']); })
+            expect(() => {invertedIndexTest.createIndex('string', ['title']); })
                 .toThrow('Malformed file');
             
             expect(() => {invertedIndexTest.
