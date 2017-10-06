@@ -16,16 +16,16 @@ class InvertedIndex {
     static isFileMalformed(jsonFile) {
         let result = false;
         for(let i = 0; i < jsonFile.length; i += 1) {
-            result = !("title" in jsonFile[i] && "text" in jsonFile[i]);
-            if (result) break;
+      result = !("title" in jsonFile[i] && "text" in jsonFile[i]);
+      if (result) break;
         }
         return result;
     }
-    /** Split strings of text into unique word
-     *  and form array from it i.e tokens
-     *  @param {string},text to be splitted
-     *  @returns {array}, unique word from the strings
-     */
+  /** Split strings of text into unique word
+   *  and form array from it i.e tokens
+   *  @param {string},text to be splitted
+   *  @returns {array}, unique word from the strings
+   */
     static arrayFromText(text){
         text = new Set(text.toLowerCase().match(/\s+/g));
         return Array.from(text);
@@ -42,13 +42,13 @@ class InvertedIndex {
         })
         return bookedContent.trim();
     }
-    /** The method will read the file and verify it's valid
-     *  create an index of the words in it
-     *  @param {string} fileName , the name of the book to
-     *  be indexed
-     *  @param {string} fileContent, the content of the JSON array
-     *  @returns {object} returns a string
-     */
+  /** The method will read the file and verify it's valid
+   *  create an index of the words in it
+   *  @param {string} fileName , the name of the book to
+   *  be indexed
+   *  @param {string} fileContent, the content of the JSON array
+   *  @returns {object} returns a string
+   */
     
     createIndex(fileName, fileContent) {
         if (!fileName || fileContent === undefined) {
@@ -57,8 +57,8 @@ class InvertedIndex {
         if (!Array.isArray(fileContent)) {
             throw new Error('Not JSON array');
         }
-        if (!fileContent.length) {
-            throw new Error('Empty JSON array');
+    if (!fileContent.length) {
+        throw new Error('Empty JSON array');
         }
         try {
             if (InvertedIndex.isFileMalformed(fileContent)) {
@@ -68,7 +68,7 @@ class InvertedIndex {
             throw new Error('Malformed file');
         }
         
-        const index = {}
+        const index = {};
         const allFileContent = InvertedIndex.arrayFromText(InvertedIndex.bookContent(fileContent));
         let eachContent;
 
