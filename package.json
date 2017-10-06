@@ -4,7 +4,7 @@
   "description": "Inverted Index API",
   "main": "routes/server.js",
   "directories": {
-    "test": "node tests/inverted-index-test.js"
+    "test": "tests"
   },
   "scripts": {
     "test": "tests"
