@@ -6,22 +6,22 @@ class InvertedIndex {
     /** initialises to empty object
      *  @constructor
      */
-    constructor() {
+  constructor() {
     this.indices = {};
   }
   /** check if the file is Malformed
    *  @param{object}, json file
    *  result return boolean
    */
-    static isFileMalformed(jsonFile) {
-        let result = false;
+  static isFileMalformed(jsonFile) {
+    let result = false;
     for (let i = 0; i < jsonFile.length; i += 1) {
       result = !('title' in jsonFile[i] && 'text' in jsonFile[i]);
       if (result) break;
-        }
-        return result;
     }
-  /** Split strings of text into unique word
+    return result;
+    }
+  /** @param {json}, Split string of text into unique word
    *  and form array from it i.e tokens
    *  @param {string},text to be splitted
    *  @returns {array}, unique word from the strings
@@ -100,7 +100,7 @@ class InvertedIndex {
       if (typeof term === 'string') {
         searchTerms.push(...InvertedIndex.arrayFromText(term));
       }
-        });
+    });
     keys.forEach((index) => {
       result[index] = {};
     });
@@ -109,7 +109,7 @@ class InvertedIndex {
       fileName = `${searchTerms[0]}.json`;
       searchTerms = searchTerms.slice(2);
     } else {
-        fileName = 'all';
+      fileName = 'all';
         }
     keys.forEach((index) => {
       searchTerms.forEach((word) => {
