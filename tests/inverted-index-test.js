@@ -22,19 +22,19 @@ describe('Inverted Index Test', () => {
 
         })
         it('should throw, `not JSON array`', () => {
-            expect(invertedIndexTest.createIndex('string',3)).toThrow('not JSON array');
+      expect(invertedIndexTest.createIndex('string', 3)).toThrow('not JSON array');
         })
         it('should throw,` not JSON array`', () => {
             expect(invertedIndexTest.createIndex('string' ,{ })).toThrow('not JSON array');
         })
         it('should throw, `Improper file name`', () => {
-            expect(invertedIndexTest.createIndex([], [])).toThrow('Improper file name');
+      expect(invertedIndexTest.createIndex([], [])).toThrow('Improper file name');
         })
         it('should throw, `Malformed file`', () => {
-            expect(invertedIndexTest.createIndex('string', ['title'])).toThrow('Malformed file');
+      expect(invertedIndexTest.createIndex('string', ['title'])).toThrow('Malformed file');
             
             expect(invertedIndexTest.createIndex('string', malformed)).toThrow('Malformed file');
-            expect(invertedIndexTest.createIndex('string',bad)).toThrow(Error('Malformed file'));    
+            expect(invertedIndexTest.createIndex('string', bad)).toThrow(Error('Malformed file'));
         });
 
     });
@@ -43,7 +43,7 @@ describe('Inverted Index Test', () => {
             expect(InvertedIndex.isFileMalformed(malformed)).toBe(true);
         })
         it('should return `false` for valid JSON file', () => {
-            expect(InvertedIndex.isFileMalformed(valid)).toBe(false);
+            expect(() => { InvertedIndex.isFileMalformed(valid); }).toBe(false);
         });
     });
     describe('Check if array or token is formed from file', () => {
