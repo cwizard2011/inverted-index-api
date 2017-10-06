@@ -7,15 +7,15 @@ class InvertedIndex {
      *  initialises to empty object
      */
     constructor () {
-        this.indices = {};
-    }
-    /** check if the file is Malformed
-     *  @param{object}, json file
-     *  result return boolean
-     */
+    this.indices = {};
+  }
+  /** check if the file is Malformed
+   *  @param{object}, json file
+   *  result return boolean
+   */
     static isFileMalformed(jsonFile) {
         let result = false;
-        for(let i = 0; i < jsonFile.length; i += 1) {
+    for(let i = 0; i < jsonFile.length; i += 1) {
       result = !("title" in jsonFile[i] && "text" in jsonFile[i]);
       if (result) break;
         }
@@ -26,7 +26,7 @@ class InvertedIndex {
    *  @param {string},text to be splitted
    *  @returns {array}, unique word from the strings
    */
-    static arrayFromText(text){
+  static arrayFromText(text){
         text = new Set(text.toLowerCase().match(/\s+/g));
         return Array.from(text);
     }
@@ -38,7 +38,7 @@ class InvertedIndex {
     static bookContent(jsonFile) {
         let bookedContent = '';
         bookedContent.forEach((book) => {
-            bookedContent += `${book.title} ${book.text}`;
+      bookedContent += `${book.title} ${book.text}`;
         })
         return bookedContent.trim();
     }
@@ -52,7 +52,7 @@ class InvertedIndex {
     
     createIndex(fileName, fileContent) {
         if (!fileName || fileContent === undefined) {
-            throw new Error('Improper arguements');
+      throw new Error('Improper arguements');
         }
         if (!Array.isArray(fileContent)) {
             throw new Error('Not JSON array');
@@ -60,13 +60,13 @@ class InvertedIndex {
     if (!fileContent.length) {
         throw new Error('Empty JSON array');
         }
-        try {
-            if (InvertedIndex.isFileMalformed(fileContent)) {
-                throw new Error('Malformed file');
-            }
-        } catch (err) {
+    try {
+        if (InvertedIndex.isFileMalformed(fileContent)) {
             throw new Error('Malformed file');
         }
+    } catch (err) {
+        throw new Error('Malformed file');
+      }
         
         const index = {};
         const allFileContent = InvertedIndex.arrayFromText(InvertedIndex.bookContent(fileContent));
@@ -75,8 +75,8 @@ class InvertedIndex {
         
         fileContent.forEach((book, filePath) => {
             eachContent = book;
-            eachContent = 
-            new Set(`${eachContent.title} ${eachContent.text} `);
+        eachContent = 
+        new Set(`${eachContent.title} ${eachContent.text} `);
 
             
 
