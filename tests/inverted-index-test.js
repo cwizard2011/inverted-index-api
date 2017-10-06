@@ -16,7 +16,7 @@ describe('Inverted Index Test', () => {
     it('should throw, `Improper arguements`', () => {
       expect(() => { invertedIndexTest.createIndex(); }).toThrow('improper arguement');
       expect(() => { invertedIndexTest.createIndex(valid); }).toThrow('improper arguement');
-  })
+    })
     it('should throw, `Empty JSON array`', () => {
         expect(() => { invertedIndexTest.createIndex('string', []); }).toThrow('Empty JSON array');
 
@@ -34,7 +34,7 @@ describe('Inverted Index Test', () => {
       expect(invertedIndexTest.createIndex('string', ['title'])).toThrow('Malformed file');
       expect(invertedIndexTest.createIndex('string', malformed)).toThrow('Malformed file');
       expect(invertedIndexTest.createIndex('string', bad)).toThrow(Error('Malformed file'));
-        });
+    });
     });
   describe('Checks If file is malformed', () => {
     it('should return `true` for malformed JSON file', () => {
@@ -49,7 +49,7 @@ describe('Inverted Index Test', () => {
     const text2 = valid[1].text;
     const validTokens1 = Array.from(new Set(text1.toLowerCase().split(' ')));
     const validTokens2 = Array.from(new Set(text2.toLowerCase().split(' ')));
-        
+
     it('Should return an array of unique token', () => {
       expect(InvertedIndex.arrayFromText(text1)).toBeTruthy();
       expect(InvertedIndex.arrayFromText(text1)).toEqual(validTokens1);
@@ -61,7 +61,7 @@ describe('Inverted Index Test', () => {
     + 'Life is full of mystery Your student today will be your teacher tomorrow, its dancing time';
     it('Should return a string of all titles and texts', () => {
       expect(InvertedIndex.bookContent(book1)).toBe(expected);
-        });    
+    });    
   });
   describe('Checks if the `searchIndex` returns valid results', () => {
     invertedIndexTest.createIndex('valid.json', valid);
@@ -83,8 +83,8 @@ describe('Inverted Index Test', () => {
       expect(InvertedIndex.searchIndex(indices, 'valid.json', 'yeh')).toEqual({ yeh: [] });
         });
     const expected = {
-      'valid.json': {yeh: []},
-      'book1.json': {yeh: []}
+      'valid.json': { yeh: [] },
+      'book1.json': { yeh: [] }
     };
     it('Should return appropriate result', () => {
       expect(InvertedIndex.searchIndex(indices, 'yeh')).toEqual(expected);
