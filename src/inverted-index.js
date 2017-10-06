@@ -98,10 +98,10 @@ class InvertedIndex {
       const result = {};
       const keys = Object.keys(indices);
       terms.forEach((term) => {
-          if(Array.isArray(term)) {
+          if (Array.isArray(term)) {
               searchTerms.push(...term);
             }
-          if(typeof term === 'string') {
+          if (typeof term === 'string') {
               searchTerms.push(...InvertedIndex.arrayFromText(term));
             };
         });
@@ -109,7 +109,7 @@ class InvertedIndex {
             result[index] = {};
         });
         let fileName;
-        if(searchTerms[1] === 'json') {
+        if (searchTerms[1] === 'json') {
             fileName = `${searchTerms[0]}.json`;
             searchTerms = searchTerms.slice(2);
         } else {
@@ -117,15 +117,15 @@ class InvertedIndex {
         }
         keys.forEach((index) => {
             searchTerms.forEach((word) => {
-                if(word in indices[index]) {
+                if (word in indices[index]) {
                     result[index][word] = indices[index][word];
                 }
             });
         });
-        if(!(fileName in indices) && fileName !== 'all') {
+        if (!(fileName in indices) && fileName !== 'all') {
             return `${fileName} not in index`;
         }
-        if(fileName === 'all') {
+        if (fileName === 'all') {
             return result;
         }
         return result[fileName];
