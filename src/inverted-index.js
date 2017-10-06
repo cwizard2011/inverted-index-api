@@ -101,7 +101,7 @@ class InvertedIndex {
       }
       if (typeof term === 'string') {
         searchTerms.push(...InvertedIndex.arrayFromText(term));
-      };
+      }
         });
     keys.forEach((index) => {
       result[index] = {};
