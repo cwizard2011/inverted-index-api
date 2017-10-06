@@ -14,7 +14,7 @@ const invertedIndexTest = new InvertedIndex();
 describe('Inverted Index Test', () => {
     describe('Is createIndex properly called?', () => {
         it('should throw, `Improper arguements`', () => {
-            expect(invertedIndexTest.createIndex()).toThrow('improper arguement');
+      expect(invertedIndexTest.createIndex()).toThrow('improper arguement');
       expect(invertedIndexTest.createIndex(valid)).toThrow('improper arguement');
   })
     it('should throw, `Empty JSON array`', () => {
@@ -41,7 +41,7 @@ describe('Inverted Index Test', () => {
         it('should return `true` for malformed JSON file', () => {
             expect(InvertedIndex.isFileMalformed(malformed)).toBe(true);
         })
-        it('should return `false` for valid JSON file', () => {
+    it('should return `false` for valid JSON file', () => {
       expect(() => { InvertedIndex.isFileMalformed(valid); }).toBe(false);
         });
     });
@@ -50,24 +50,23 @@ describe('Inverted Index Test', () => {
         const text2 = valid[1].text;
 
         const validTokens1 = Array.from(new Set(text1.toLowerCase().split(' ')));
-        const validTokens2 = Array.from(new Set(text2.toLowerCase().split(' ')));
+    const validTokens2 = Array.from(new Set(text2.toLowerCase().split(' ')));
         
-        it('Should return an array of unique token', () => {
+    it('Should return an array of unique token', () => {
       expect(InvertedIndex.arrayFromText(text1)).toBeTruthy();
             expect(InvertedIndex.arrayFromText(text1)).toEqual(validTokens1);
             expect(() => { InvertedIndex.arrayFromText(text2); }).toEqual(validTokens2);
-
         });
     });
   describe('Is JSON content properly flattened in the method bookContent?', () => {
-        const expected = 'I love being a developer Being a developer is one of my greatest dream'
-        + 'Life is full of mystery Your student today will be your teacher tomorrow, its dancing time';
+    const expected = 'I love being a developer Being a developer is one of my greatest dream'
+    + 'Life is full of mystery Your student today will be your teacher tomorrow, its dancing time';
         it('Should return a string of all titles and texts', () => {
             expect(InvertedIndex.bookContent(book1)).toBe(expected);
         });    
-    });
-    describe('Checks if the `searchIndex` returns valid results', () => {
-        invertedIndexTest.createIndex('valid.json', valid);
+  });
+  describe('Checks if the `searchIndex` returns valid results', () => {
+    invertedIndexTest.createIndex('valid.json', valid);
         invertedIndexTest.createIndex('book1.json', valid);
 
         const indices = invertedIndexTest.indices;
