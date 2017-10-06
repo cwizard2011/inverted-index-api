@@ -83,7 +83,7 @@ describe('Inverted Index Test', () => {
       expect(InvertedIndex.searchIndex(indices, 'try.json', 'laughs')).toBe('try.json not in index');
         });
         it('Should return `{yeh:[]}`', () => {
-      expect(InvertedIndex.searchIndex(indices, 'valid.json', 'yeh')).toEqual({yeh:[]});
+      expect(InvertedIndex.searchIndex(indices, 'valid.json', 'yeh')).toEqual({ yeh: [] });
         });
         const expected = {
             'valid.json': {yeh: []},
