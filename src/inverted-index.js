@@ -13,7 +13,7 @@ class InvertedIndex {
   }
   /** 
    *  Checks if the file is Malformed
-   *  @param {object}, json file
+   *  @param {Object}, json file
    *  @returns {boolean}, result return boolean i.e true or false
    */
   static isFileMalformed(jsonFile) {
