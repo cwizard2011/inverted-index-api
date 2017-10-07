@@ -17,7 +17,7 @@ describe('Inverted Index Test', () => {
     it('should throw, `Improper arguements`', () => {
       expect(() => { invertedIndexTest.createIndex(); }).toThrow('improper arguement');
       expect(() => { invertedIndexTest.createIndex(valid); }).toThrow('improper arguement');
-  });
+});
     it('should throw, `Empty JSON array`', () => {
       expect(() => { invertedIndexTest.createIndex('string', []); }).toThrow('Empty JSON array');
   });
