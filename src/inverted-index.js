@@ -1,15 +1,18 @@
-/** Inverted Index Class
+/** 
+ *  Inverted Index Class
  *  @Author: Adeoye Peter Adeola <cwizard2011@gmail.com>
  *  @class
  */
 class InvertedIndex {
-    /** initialises to empty object
-     *  @constructor
-     */
+  /** 
+   *  initialises to empty object
+   *  @constructor
+   */
   constructor() {
     this.indices = {};
   }
-  /** check if the file is Malformed
+  /** 
+   *  check if the file is Malformed
    *  @param{object}, json file
    *  result return boolean
    */
@@ -20,9 +23,9 @@ class InvertedIndex {
       if (result) break;
     }
     return result;
-    }
-  /** @param {string}, Split string of text into unique word
-   *  and form array from it i.e tokens
+  }
+  /**
+   *  Split string of text into unique word and form array from it i.e tokens
    *  @param {string},text to be splitted
    *  @returns {array}, unique word from the strings
    */
@@ -30,20 +33,20 @@ class InvertedIndex {
     text = new Set(text.toLowerCase().match(/\s+/g));
     return Array.from(text);
     }
-  /** Method to get all contents of JSON file
+  /** 
+   *  Method to get all contents of JSON file
    *  @param {array} jsonFile, array of book objects 
-   *  @returns {string}, a string mixture of both title and text
-   *  i.e JASON content flattened
+   *  @returns {string}, a string mixture of both title and text i.e JASON content flattened
    */
   static bookContent(jsonFile) {
     let bookedContent = '';
     jsonFile.forEach((book) => {
       bookedContent += `${book.title} ${book.text}`;
-    })
+    });
     return bookedContent.trim();
     }
-  /** The method will read the file and verify it's valid
-   *  create an index of the words in it
+  /** 
+   *  The method will read the file and verify it's valid create an index of the words in it
    *  @param {string} fileName , the name of the book to be indexed
    *  @param {string} fileContent, the content of the JSON array
    *  @returns {object} returns a string
@@ -81,13 +84,12 @@ class InvertedIndex {
     this.indices[fileName] = index;
     return JSON.stringify(index);
     }
-  /** Method to search the already created index
+  /** 
+   *  Method to search the already created index
    *  @param {object} indices - indices to be searched
-   *  @param {string} fileName - name of the file to be
-   *  searched
+   *  @param {string} fileName - name of the file to be searched
    *  @param {string|array} terms - search terms
-   *  @returns {object} - contains the location of each
-   *  terms
+   *  @returns {object} - contains the location of each terms
    */
   static searchIndex(indices, ...terms) {
     let searchTerms = [];
