@@ -66,7 +66,7 @@ class InvertedIndex {
         throw new Error('Malformed file');
         }
     } catch (err) {
-        throw new Error('Malformed file');
+      throw new Error('Malformed file');
       }
     const index = {};
     const allFileContent = InvertedIndex.arrayFromText(InvertedIndex.bookContent(fileContent));
@@ -79,7 +79,7 @@ class InvertedIndex {
           if (word in index) index[word].push(filePath);
           else index[word] = [filePath];
         }
-      })
+      });
     })
     this.indices[fileName] = index;
     return JSON.stringify(index);
