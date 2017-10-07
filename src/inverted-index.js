@@ -13,7 +13,7 @@ class InvertedIndex {
   }
   /** 
    *  Checks if the file is Malformed
-   *  @param {Object}, json file
+   *  @param {object}, json file
    *  @returns {boolean}, result return boolean i.e true or false
    */
   static isFileMalformed(jsonFile) {
@@ -44,7 +44,7 @@ class InvertedIndex {
       bookedContent += `${book.title} ${book.text}`;
     });
     return bookedContent.trim();
-    }
+  }
   /** 
    *  The method will read the file and verify it's valid create an index of the words in it
    *  @param {string} fileName , the name of the book to be indexed
