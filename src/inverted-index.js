@@ -60,7 +60,7 @@ class InvertedIndex {
     }
     if (!fileContent.length) {
       throw new Error('Empty JSON array');
-        }
+  }
     try {
       if (InvertedIndex.isFileMalformed(fileContent)) {
         throw new Error('Malformed file');
