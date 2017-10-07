@@ -5,14 +5,14 @@
  */
 class InvertedIndex {
   /** 
-   *  initialises to empty object
+   *  Initialises to empty object
    *  @constructor
    */
   constructor() {
     this.indices = {};
   }
   /** 
-   *  check if the file is Malformed
+   *  Checks if the file is Malformed
    *  @param{object}, json file
    *  result return boolean
    */
