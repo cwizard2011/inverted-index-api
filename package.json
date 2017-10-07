@@ -27,6 +27,8 @@
     "backtick": "^0.3.2",
     "dotenv": "^4.0.0",
     "es6": "0.0.7",
+    "eslint": "^4.8.0",
+    "express": "^4.16.1",
     "gulp-concat": "^2.6.1",
     "jasmine": "^2.8.0",
     "jasmine-node": "^1.14.5",
