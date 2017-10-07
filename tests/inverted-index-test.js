@@ -1,5 +1,6 @@
 /** Inverted index test 
  *  @Author: Adeoye Peter Adeola
+ *  eslint no-undef: "error"
  */
 import InvertedIndex from '../src/inverted-index.js';
 import valid from '../fixtures/valid.json';
