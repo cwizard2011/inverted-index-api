@@ -32,7 +32,7 @@ class InvertedIndex {
   static arrayFromText(text) {
     text = new Set(text.toLowerCase().match(/\s+/g));
     return Array.from(text);
-    }
+  }
   /** 
    *  Method to get all contents of JSON file
    *  @param {array} jsonFile, array of book objects 
