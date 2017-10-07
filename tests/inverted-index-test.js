@@ -53,14 +53,14 @@ describe('Inverted Index Test', () => {
       expect(InvertedIndex.arrayFromText(text1)).toBeTruthy();
       expect(InvertedIndex.arrayFromText(text1)).toEqual(validTokens1);
       expect(() => { InvertedIndex.arrayFromText(text2); }).toEqual(validTokens2);
-        });
+    });
     });
   describe('Is JSON content properly flattened in the method bookContent?', () => {
     const expected = 'I love being a developer Being a developer is one of my greatest dream'
     + 'Life is full of mystery Your student today will be your teacher tomorrow, its dancing time';
     it('Should return a string of all titles and texts', () => {
       expect(InvertedIndex.bookContent(book1)).toBe(expected);
-    });
+  });
   });
   describe('Checks if the `searchIndex` returns valid results', () => {
     invertedIndexTest.createIndex('valid.json', valid);
@@ -68,25 +68,25 @@ describe('Inverted Index Test', () => {
     const indices = invertedIndexTest.indices;
     it('Should return a valid result for one file', () => {
       expect(InvertedIndex.searchIndex(indices, 'valid.json', 'dancing')).toEqual(searchValid);
-        });
+  });
     it('Should return a valid result for all files', () => {
       expect(InvertedIndex.searchIndex(indices, 'dancing')).toEqual(searchAll);
-        });
+  });
     it('Should return a valid result for all files', () => {
       expect(InvertedIndex.searchIndex(indices, ['dancing'])).toEqual(searchAll);
-        });
+  });
     it('Should return `try not in index`', () => {
       expect(InvertedIndex.searchIndex(indices, 'try.json', 'laughs')).toBe('try.json not in index');
-        });
+  });
     it('Should return `{yeh:[]}`', () => {
       expect(InvertedIndex.searchIndex(indices, 'valid.json', 'yeh')).toEqual({ yeh: [] });
-        });
+  });
     const expected = {
       'valid.json': { yeh: [] },
       'book1.json': { yeh: [] }
     };
     it('Should return appropriate result', () => {
       expect(InvertedIndex.searchIndex(indices, 'yeh')).toEqual(expected);
-        });
-    });
+  });
+  });
 });
