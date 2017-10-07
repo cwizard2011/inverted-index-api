@@ -61,7 +61,7 @@ describe('Inverted Index Test', () => {
     + 'Life is full of mystery Your student today will be your teacher tomorrow, its dancing time';
     it('Should return a string of all titles and texts', () => {
       expect(InvertedIndex.bookContent(book1)).toBe(expected);
-    });    
+    });
   });
   describe('Checks if the `searchIndex` returns valid results', () => {
     invertedIndexTest.createIndex('valid.json', valid);
