@@ -13,8 +13,8 @@ class InvertedIndex {
   }
   /** 
    *  Checks if the file is Malformed
-   *  @param{object}, json file
-   *  result return boolean
+   *  @param {object}, json file
+   *  @returns {boolean}, result return boolean i.e true or false
    */
   static isFileMalformed(jsonFile) {
     let result = false;
@@ -80,7 +80,7 @@ class InvertedIndex {
           else index[word] = [filePath];
         }
       });
-    })
+    });
     this.indices[fileName] = index;
     return JSON.stringify(index);
     }
