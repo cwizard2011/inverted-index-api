@@ -21,14 +21,14 @@ describe('Inverted Index Test', () => {
       expect(() => { invertedIndexTest.createIndex('string', []); }).toThrow('Empty JSON array');
     });
     it('should throw, `not JSON array`', () => {
-      expect(() => {invertedIndexTest.createIndex('string', 3); }).toThrow('not JSON array');
-  });
+      expect(() => { invertedIndexTest.createIndex('string', 3); }).toThrow('not JSON array');
+    });
     it('should throw,` not JSON array`', () => {
       expect(() => { invertedIndexTest.createIndex('string', {}); }).toThrow('not JSON array');
   });
     it('should throw, `Improper file name`', () => {
       expect(invertedIndexTest.createIndex([], [])).toThrow('Improper file name');
-  })
+  });
     it('should throw, `Malformed file`', () => {
       expect(invertedIndexTest.createIndex('string', ['title'])).toThrow('Malformed file');
       expect(invertedIndexTest.createIndex('string', malformed)).toThrow('Malformed file');
@@ -37,7 +37,7 @@ describe('Inverted Index Test', () => {
   });
   describe('Checks If file is malformed', () => {
     it('should return `true` for malformed JSON file', () => {
-      expect(InvertedIndex.isFileMalformed(malformed)).toBe(true); 
+      expect(InvertedIndex.isFileMalformed(malformed)).toBe(true);
   })
     it('should return `false` for valid JSON file', () => {
       expect(() => { InvertedIndex.isFileMalformed(valid); }).toBe(false);
@@ -51,7 +51,7 @@ describe('Inverted Index Test', () => {
     it('Should return an array of unique token', () => {
       expect(InvertedIndex.arrayFromText(text1)).toBeTruthy();
       expect(InvertedIndex.arrayFromText(text1)).toEqual(validTokens1);
-      expect(() => { InvertedIndex.arrayFromText(text2); }).toEqual(validTokens2); 
+      expect(() => { InvertedIndex.arrayFromText(text2); }).toEqual(validTokens2);
   });
   });
   describe('Is JSON content properly flattened in the method bookContent?', () => {
@@ -66,10 +66,10 @@ describe('Inverted Index Test', () => {
     invertedIndexTest.createIndex('book1.json', valid);
     const indices = invertedIndexTest.indices;
     it('Should return a valid result for one file', () => {
-      expect(InvertedIndex.searchIndex(indices, 'valid.json', 'dancing')).toEqual(searchValid); 
+      expect(InvertedIndex.searchIndex(indices, 'valid.json', 'dancing')).toEqual(searchValid);
   });
     it('Should return a valid result for all files', () => {
-      expect(InvertedIndex.searchIndex(indices, 'dancing')).toEqual(searchAll); 
+      expect(InvertedIndex.searchIndex(indices, 'dancing')).toEqual(searchAll);
   });
     it('Should return a valid result for all files', () => {
       expect(InvertedIndex.searchIndex(indices, ['dancing'])).toEqual(searchAll);
