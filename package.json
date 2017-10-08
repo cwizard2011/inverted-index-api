@@ -2,7 +2,7 @@
   "name": "inverted-index-api",
   "version": "1.0.0",
   "description": "Inverted Index API",
-  "main": "routes/server.js",
+  "main": "engine/server.js",
   "directories": {
     "test": "tests"
   },
