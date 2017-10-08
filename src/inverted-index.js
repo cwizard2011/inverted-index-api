@@ -53,10 +53,13 @@ class InvertedIndex {
    */
   createIndex(fileName, fileContent) {
     if (!fileName || fileContent === undefined) {
-      throw new Error('Improper arguements');
+      throw new Error('Improper arguement');
     }
     if (!Array.isArray(fileContent)) {
-      throw new Error('Not JSON array');
+      throw new Error('not JSON array');
+    }
+    if (typeof fileName !== 'string') {
+      throw new Error('Improper file name');
     }
     if (!fileContent.length) {
       throw new Error('Empty JSON array');
