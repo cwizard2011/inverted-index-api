@@ -1,6 +1,5 @@
 /** Inverted index test 
  *  @Author: Adeoye Peter Adeola
- *  eslint no-undef: "error"
  */
 import InvertedIndex from '../src/inverted-index.js';
 import valid from '../fixtures/valid.json';
@@ -9,7 +8,7 @@ import malformed from '../fixtures/malformed.json';
 import bad from '../fixtures/bad.json';
 import searchValid from '../fixtures/search-valid.json';
 import searchAll from '../fixtures/search-all.json';
-
+/* eslint no-undef: "error" */
 const invertedIndexTest = new InvertedIndex();
 
 describe('Inverted Index Test', () => {
