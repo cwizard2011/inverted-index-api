@@ -1,8 +1,6 @@
 {
     "root": true,
-    "extends": [
-        "airbnb", 
-        "eslint:recommended"],
+    "extends": "airbnb", 
     "env": {
         "node": true,
         "es6": true,
