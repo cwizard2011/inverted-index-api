@@ -19,12 +19,12 @@ describe('Inverted Index Test', () => {
     });
     it('should throw, `Empty JSON array`', () => {
       expect(() => { invertedIndexTest.createIndex('string', []); }).toThrow('Empty JSON array');
-  });
+    });
     it('should throw, `not JSON array`', () => {
       expect(() => {invertedIndexTest.createIndex('string', 3); }).toThrow('not JSON array');
   });
     it('should throw,` not JSON array`', () => {
-      expect(() => { invertedIndexTest.createIndex('string', {}); }).toThrow('not JSON array'); 
+      expect(() => { invertedIndexTest.createIndex('string', {}); }).toThrow('not JSON array');
   });
     it('should throw, `Improper file name`', () => {
       expect(invertedIndexTest.createIndex([], [])).toThrow('Improper file name');
@@ -75,10 +75,10 @@ describe('Inverted Index Test', () => {
       expect(InvertedIndex.searchIndex(indices, ['dancing'])).toEqual(searchAll);
   });
     it('Should return `try not in index`', () => {
-      expect(InvertedIndex.searchIndex(indices, 'try.json', 'laughs')).toBe('try.json not in index'); 
+      expect(InvertedIndex.searchIndex(indices, 'try.json', 'laughs')).toBe('try.json not in index');
   });
     it('Should return `{yeh:[]}`', () => {
-      expect(InvertedIndex.searchIndex(indices, 'valid.json', 'yeh')).toEqual({ yeh: [] }); 
+      expect(InvertedIndex.searchIndex(indices, 'valid.json', 'yeh')).toEqual({ yeh: [] });
   });
     const expected = {
       'valid.json': { yeh: [] },
