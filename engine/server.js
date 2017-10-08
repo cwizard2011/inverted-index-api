@@ -61,7 +61,7 @@ app.post('/api/create', upload.array('file'), (req, res) => {
             });
         });
         app.post('/api/search', (req, res) => {
-            const indices = runApp.indices;
+            const indices = runApps.indices;
             let result;
             const searchTerms = InvertedIndex.arrayFromText(req.body.terms);
             
