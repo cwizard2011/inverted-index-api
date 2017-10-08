@@ -14,14 +14,14 @@ const invertedIndexTest = new InvertedIndex();
 describe('Inverted Index Test', () => {
   describe('Is createIndex properly called?', () => {
     it('should throw, `Improper arguements`', () => {
-      expect((invalid) => { invertedIndexTest.createIndex(); }).toThrow('improper arguement');
-      expect((invalid) => { invertedIndexTest.createIndex(valid); }).toThrow('improper arguement');
+      expect(() => { invertedIndexTest.createIndex(); }).toThrow('improper arguement');
+      expect(() => { invertedIndexTest.createIndex(valid); }).toThrow('improper arguement');
     });
     it('should throw, `Empty JSON array`', () => {
-      expect((empty) => { invertedIndexTest.createIndex('string', []); }).toThrow('Empty JSON array');
+      expect(() => { invertedIndexTest.createIndex('string', []); }).toThrow('Empty JSON array');
   });
     it('should throw, `not JSON array`', () => {
-      expect((nonArray) => {invertedIndexTest.createIndex('string', 3); }).toThrow('not JSON array');
+      expect(() => {invertedIndexTest.createIndex('string', 3); }).toThrow('not JSON array');
   });
     it('should throw,` not JSON array`', () => {
       expect(() => { invertedIndexTest.createIndex('string', {}); }).toThrow('not JSON array'); 
