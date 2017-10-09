@@ -23,7 +23,7 @@ gulp.task('coverage', (cb) => {
         .pipe(injectModules())
         .pipe(jasmineNode())
         .pipe(istanbul.writeReports())
-        .pipe(istanbul.enforceThresholds({ thresholds: { globals: 90 } }))
+        .pipe(istanbul.enforceThresholds({ thresholds: { globals: 50 } }))
         .on('end', cb);
     });
 });
