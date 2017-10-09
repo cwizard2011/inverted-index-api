@@ -64,9 +64,10 @@ var InvertedIndex = function () {
       var index = {};
       var allFileContent = InvertedIndex.arrayFromText(InvertedIndex.bookContent(fileContent));
       var eachContent = void 0;
+
       fileContent.forEach(function (book, filePath) {
         eachContent = book;
-        eachContent = new Set(eachContent.title + ' ' + eachContent.text + ' ');
+        eachContent = new Set(InvertedIndex.arrayFromText(eachContent.title + ' ' + eachContent.text + ' '));
         allFileContent.forEach(function (word) {
           if (eachContent.has(word)) {
             if (word in index) index[word].push(filePath);else index[word] = [filePath];
@@ -103,7 +104,7 @@ var InvertedIndex = function () {
   }, {
     key: 'arrayFromText',
     value: function arrayFromText(text) {
-      text = new Set(text.toLowerCase().match(/\s+/g));
+      text = new Set(text.toLowerCase().match(/\w+/g));
       return Array.from(text);
     }
     /** 
@@ -117,7 +118,7 @@ var InvertedIndex = function () {
     value: function bookContent(jsonFile) {
       var bookedContent = '';
       jsonFile.forEach(function (book) {
-        bookedContent += book.title + ' ' + book.text;
+        bookedContent += book.title + ' ' + book.text + ' ';
       });
       return bookedContent.trim();
     }
@@ -158,6 +159,8 @@ var InvertedIndex = function () {
         searchTerms.forEach(function (word) {
           if (word in indices[index]) {
             result[index][word] = indices[index][word];
+          } else {
+            result[index][word] = [];
           }
         });
       });

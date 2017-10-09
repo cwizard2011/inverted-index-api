@@ -30,7 +30,7 @@ class InvertedIndex {
    *  @returns {array}, unique word from the strings
    */
   static arrayFromText(text) {
-    text = new Set(text.toLowerCase().match(/\s+/g));
+    text = new Set(text.toLowerCase().match(/\w+/g));
     return Array.from(text);
   }
   /** 
@@ -41,7 +41,7 @@ class InvertedIndex {
   static bookContent(jsonFile) {
     let bookedContent = '';
     jsonFile.forEach((book) => {
-      bookedContent += `${book.title} ${book.text}`;
+      bookedContent += `${book.title} ${book.text} `;
     });
     return bookedContent.trim();
   }
@@ -74,9 +74,10 @@ class InvertedIndex {
     const index = {};
     const allFileContent = InvertedIndex.arrayFromText(InvertedIndex.bookContent(fileContent));
     let eachContent;
+
     fileContent.forEach((book, filePath) => {
       eachContent = book;
-      eachContent = new Set(`${eachContent.title} ${eachContent.text} `);
+      eachContent = new Set(InvertedIndex.arrayFromText(`${eachContent.title} ${eachContent.text} `));
       allFileContent.forEach((word) => {
         if (eachContent.has(word)) {
           if (word in index) index[word].push(filePath);
@@ -120,6 +121,8 @@ class InvertedIndex {
       searchTerms.forEach((word) => {
         if (word in indices[index]) {
           result[index][word] = indices[index][word];
+        } else {
+          result[index][word] = [];
         }
       });
     });
