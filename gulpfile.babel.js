@@ -28,5 +28,4 @@ gulp.task('coverage', (cb) => {
     });
 });
 
-
 gulp.task('default', ['run-tests', 'coveralls']);
