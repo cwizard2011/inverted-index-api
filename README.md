@@ -14,18 +14,18 @@ To create an inverted index, we first split the content field of each document i
 
 ## End Point
 
-- "'/api/create'" Use this to upload Json file and generate your index or indices for multiple file upload
-- "'/api/search'" Use this to search the created indices
+- ```/api/create``` Use this to upload Json file and generate your index or indices for multiple file upload
+- ```/api/search``` Use this to search the created indices
 
 ## Installation
 
 - Clone this repository locally by opening your terminal and type
-  git clone https://github.com/cwizard2011/inverted-index-api and press enter to clone this repo locally.
+  ```git clone https://github.com/cwizard2011/inverted-index-api``` and press enter to clone this repo locally.
 - type "npm install" to install all the dependencies in your terminal.
 
 ## How to run this API
 
-- Create a ".env" file in the root directory of your repository and set "PORT = < port of your choice >"
-- In your terminal, type "npm start" to start the server
-- launch the postman and create a post request, using "localhost:(port)/api/create", in the body section, set "key" to "file" choose "File" in the option and upload your JSON files, click "SEND" to create your indices.
+- Create a ".env" file in the root directory of your repository and set ```PORT = < port of your choice >```
+- In your terminal, type ```npm start``` to start the server
+- launch the postman and create a post request, using ```localhost:(port)/api/create```, in the body section, set ```key``` to ```file``` choose ```File``` in the option and upload your JSON files, click ```SEND``` to create your indices.
 - To search for already created indices 
