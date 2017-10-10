@@ -87,7 +87,7 @@ class InvertedIndex {
     });
     this.indices[fileName] = index;
     return JSON.stringify(index);
-    }
+  }
   /** 
    *  Method to search the already created index
    *  @param {object} indices - indices to be searched

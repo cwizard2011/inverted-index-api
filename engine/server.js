@@ -29,7 +29,7 @@ app.post('/api/create', upload.array('file'), (req, res) => {
           if (err) {
             res.send(err.message);
           } else {
-              fileName = book.originalname;
+            fileName = book.originalname;
             try {
               content = JSON.parse(data);
               runApps.createIndex(fileName, content);
@@ -83,5 +83,4 @@ app.all('*', (req, res) => {
   res.status(400).send('400 Bad Request');
 });
 app.listen(port);
-
     
