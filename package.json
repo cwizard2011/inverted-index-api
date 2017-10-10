@@ -10,7 +10,7 @@
     "start": "nodemon --exec babel-node engine/server.js",
     "test": "gulp run-tests",
     "dev": "gulp coveralls",
-    "coveralls": "cat ./coverage/icov.info | coveralls"
+    "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
   "repository": {
     "type": "git",
