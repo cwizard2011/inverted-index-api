@@ -27,5 +27,8 @@ gulp.task('coverage', (cb) => {
         .on('end', cb);
     });
 });
+gulp.task('coveralls', ['coverage'], () =>
+gulp.src('test/coverage/**/lcov.info')
+    .pipe(coveralls()));
 
 gulp.task('default', ['run-tests', 'coveralls']);
