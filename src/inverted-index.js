@@ -67,10 +67,10 @@ class InvertedIndex {
     try {
       if (InvertedIndex.isFileMalformed(fileContent)) {
         throw new Error('Malformed file');
-        }
+      }
     } catch (err) {
       throw new Error('Malformed file');
-      }
+    }
     const index = {};
     const allFileContent = InvertedIndex.arrayFromText(InvertedIndex.bookContent(fileContent));
     let eachContent;
