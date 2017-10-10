@@ -10,15 +10,15 @@ gulp.src(['src/**.js', 'tests/inverted-index-test.js'])
 .pipe(babel()).pipe(gulp.dest('dist')));
 
 gulp.task('run-tests', ['transpile'], () =>
-gulp.src(['tests/inverted-index-test.js'])
-.pipe(jasmineNode()));
+  gulp.src(['tests/inverted-index-test.js'])
+    .pipe(jasmineNode()));
 
 gulp.task('coverage', (cb) => {
     gulp.src(['src/inverted-index.js'])
     .pipe(istanbul())
     .pipe(istanbul.hookRequire())
     .on('finish', () => {
-        gulp.src('tests/inverted-index-test.js')
+      gulp.src('tests/inverted-index-test.js')
         .pipe(babel())
         .pipe(injectModules())
         .pipe(jasmineNode())

@@ -15,8 +15,8 @@ const upload = multer({ dest: 'fixtures/uploads' });
 const port = process.env.PORT;
 const app = express();
 
-app.use('/api/search',bodyParser.urlencoded({ extended: false }));
-app.use('/api/search',bodyParser.json());
+app.use('/api/search', bodyParser.urlencoded({ extended: false }));
+app.use('/api/search', bodyParser.json());
 
 app.post('/api/create', upload.array('file'), (req, res) => {
   const books = req.files;
@@ -83,4 +83,5 @@ app.all('*', (req, res) => {
   res.status(400).send('400 Bad Request');
 });
 app.listen(port);
+
     
