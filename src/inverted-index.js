@@ -116,7 +116,7 @@ class InvertedIndex {
       searchTerms = searchTerms.slice(2);
     } else {
       fileName = 'all';
-  }
+    }
     keys.forEach((index) => {
       searchTerms.forEach((word) => {
         if (word in indices[index]) {
