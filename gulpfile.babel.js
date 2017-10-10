@@ -28,7 +28,5 @@ gulp.task('coverage', (cb) => {
     });
 });
 
-gulp.src('test/coverage/**/lcov.info')
-    .pipe(coveralls());
 
 gulp.task('default', ['run-tests', 'coveralls']);
