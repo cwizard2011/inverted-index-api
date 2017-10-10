@@ -2,4 +2,40 @@
 [![Coverage Status](https://coveralls.io/repos/github/cwizard2011/inverted-index-api/badge.svg?branch=master)](https://coveralls.io/github/cwizard2011/inverted-index-api?branch=master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/658371738003490dbeb9913c9f726c7a)](https://www.codacy.com/p/94271?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=cwizard2011/inverted-index-api&amp;utm_campaign=Badge_Grade)
 
-INVERTED INDEX API
+# INVERTED INDEX API
+Elasticsearch uses a structure called an inverted index, which is designed to allow very fast full-text searches. An inverted index consists of a list of all the unique words that appear in any document, and for each word, a list of the documents in which it appears.
+
+For example, let’s say we have two documents, each with a content field containing the following:
+
+    The quick brown fox jumped over the lazy dog
+    Quick brown foxes leap over lazy dogs in summer 
+
+To create an inverted index, we first split the content field of each document into separate words (which we call terms, or tokens), create a sorted list of all the unique terms, and then list in which document each term appears. The result looks something like this:
+
+Term      Doc_1  Doc_2
+-------------------------
+Quick   |       |  X
+The     |   X   |
+brown   |   X   |  X
+dog     |   X   |
+dogs    |       |  X
+fox     |   X   |
+foxes   |       |  X
+in      |       |  X
+jumped  |   X   |
+lazy    |   X   |  X
+leap    |       |  X
+over    |   X   |  X
+quick   |   X   |
+summer  |       |  X
+the     |   X   |
+------------------------
+
+Now, if we want to search for quick brown, we just need to find the documents in which each term appears:
+
+Term      Doc_1  Doc_2
+-------------------------
+brown   |   X   |  X
+quick   |   X   |
+------------------------
+Total   |   2   |  1
