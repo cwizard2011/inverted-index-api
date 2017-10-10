@@ -22,7 +22,7 @@ app.post('/api/create', upload.array('file'), (req, res) => {
   const books = req.files;
   let content;
   let fileName;
-  const populateIndex = () => 
+  const populateIndex = () =>
     new Promise((resolve, reject) => {
       books.forEach((book) => {
         fileSystem.readFile(book.path, 'utf8', (err, data) => {
@@ -83,4 +83,3 @@ app.all('*', (req, res) => {
   res.status(400).send('400 Bad Request');
 });
 app.listen(port);
-    
