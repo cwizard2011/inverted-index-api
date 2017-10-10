@@ -4,7 +4,6 @@ import jasmineNode from 'gulp-jasmine-node';
 import istanbul from 'gulp-babel-istanbul';
 import injectModules from 'gulp-inject-modules';
 import coveralls from 'gulp-coveralls';
-import coverageFile from 'gulp-istanbul-report'
 
 gulp.task('transpile', () =>
   gulp.src(['src/**.js', 'tests/inverted-index-test.js'])
@@ -29,7 +28,7 @@ gulp.task('coverage', (cb) => {
     });
 });
 gulp.task('coveralls', ['coverage'], () =>
-  gulp.src('test/coverage/**/lcov.info')
+  gulp.src('coverage/lcov.info')
     .pipe(coveralls()));
 
-gulp.task('default', ['transpile', 'run-tests', 'coveralls']);
+gulp.task('default', ['run-tests', 'coveralls']);
