@@ -10,32 +10,4 @@ For example, let’s say we have two documents, each with a content field contai
     The quick brown fox jumped over the lazy dog
     Quick brown foxes leap over lazy dogs in summer 
 
-To create an inverted index, we first split the content field of each document into separate words (which we call terms, or tokens), create a sorted list of all the unique terms, and then list in which document each term appears. The result looks something like this:
-
-Term      Doc_1  Doc_2
--------------------------
-Quick   |       |  X
-The     |   X   |
-brown   |   X   |  X
-dog     |   X   |
-dogs    |       |  X
-fox     |   X   |
-foxes   |       |  X
-in      |       |  X
-jumped  |   X   |
-lazy    |   X   |  X
-leap    |       |  X
-over    |   X   |  X
-quick   |   X   |
-summer  |       |  X
-the     |   X   |
-------------------------
-
-Now, if we want to search for quick brown, we just need to find the documents in which each term appears:
-
-Term      Doc_1  Doc_2
--------------------------
-brown   |   X   |  X
-quick   |   X   |
-------------------------
-Total   |   2   |  1
+To create an inverted index, we first split the content field of each document into separate words (which we call terms, or tokens), create a sorted list of all the unique terms, and then list in which document each term appears. 
