@@ -6,7 +6,7 @@ import injectModules from 'gulp-inject-modules';
 import coveralls from 'gulp-coveralls';
 
 gulp.task('transpile', () =>
-  gulp.src(['src/**.js', 'tests/inverted-index-test.js'])
+  gulp.src(['src/inverted-index.js', 'tests/inverted-index-test.js'])
     .pipe(babel()).pipe(gulp.dest('dist')));
 
 gulp.task('run-tests', ['transpile'], () =>
