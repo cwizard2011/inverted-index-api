@@ -20,7 +20,7 @@ To create an inverted index, we first split the content field of each document i
 ## Installation
 
 - Clone this repository locally by opening your terminal and type
-  ```git clone https://github.com/cwizard2011/inverted-index-api``` and press enter to clone this repo locally.
+  ```git clone https://github.com/cwizard2011/inverted-index-api.git``` and press enter to clone this repo locally.
 - type "npm install" to install all the dependencies in your terminal.
 
 ## How to run this API
