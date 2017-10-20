@@ -28,4 +28,6 @@ To create an inverted index, we first split the content field of each document i
 - Create a ".env" file in the root directory of your repository and set ```PORT = < port of your choice >```
 - In your terminal, type ```npm start``` to start the server
 - launch the postman and create a post request, using ```localhost:(port)/api/create```, in the body section, set ```key``` to ```file``` choose ```File``` in the option and upload your JSON files, click ```SEND``` to create your indices.
-- To search for already created indices 
+- To search for already created indices,  using ```localhost:(port)/api/search```, in the body section, set ```key``` to ```terms```, choose ```x-www-form-urlencoded``` and set value to the term you want to search for in the uploaded book.
+
+NOTE: This API does not persist data, once you restart the server, the data get losts

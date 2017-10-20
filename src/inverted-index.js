@@ -1,5 +1,4 @@
-/** 
- *  Inverted Index Class
+/** Inverted Index Class
  *  @Author: Adeoye Peter Adeola <cwizard2011@gmail.com>
  *  @class
  */
