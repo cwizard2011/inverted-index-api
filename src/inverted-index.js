@@ -1,20 +1,19 @@
-/** 
- *  Inverted Index Class
+/** Inverted Index Class
  *  @Author: Adeoye Peter Adeola <cwizard2011@gmail.com>
  *  @class
  */
 class InvertedIndex {
-  /** 
+  /**
    *  Initialises to empty object
    *  @constructor
    */
   constructor() {
     this.indices = {};
   }
-  /** 
+  /**
    *  Checks if JSON file is Malformed
-   *  @param {object}, json file
-   *  @returns {boolean}, result return boolean i.e true or false
+   *  @param {Object}, json file
+   *  @returns {Boolean}, result return boolean i.e true or false
    */
   static isFileMalformed(jsonFile) {
     let result = false;
@@ -24,18 +23,17 @@ class InvertedIndex {
     }
     return result;
   }
-  /**
-   *  Split string of text into unique word and form array from it i.e tokens
-   *  @param {string},text to be splitted
+  /** Split string of text into unique word and form array from it i.e tokens
+   *  @param {string},string to be splitted
    *  @returns {array}, unique word from the strings
    */
   static arrayFromText(text) {
     text = new Set(text.toLowerCase().match(/\w+/g));
     return Array.from(text);
   }
-  /** 
+  /**
    *  Method to get all contents of JSON file
-   *  @param {array} jsonFile, array of book objects 
+   *  @param {array} jsonFile, array of book objects
    *  @returns {string}, a string mixture of both title and text i.e JASON content flattened
    */
   static bookContent(jsonFile) {
@@ -45,7 +43,7 @@ class InvertedIndex {
     });
     return bookedContent.trim();
   }
-  /** 
+  /**
    *  The method will read the file and verify it's valid create an index of the words in it
    *  @param {string} fileName , the name of the book to be indexed
    *  @param {string} fileContent, the content of the JSON array
@@ -88,7 +86,7 @@ class InvertedIndex {
     this.indices[fileName] = index;
     return JSON.stringify(index);
   }
-  /** 
+  /**
    *  Method to search the already created index
    *  @param {object} indices - indices to be searched
    *  @param {string} fileName - name of the file to be searched
@@ -133,7 +131,7 @@ class InvertedIndex {
       return result;
     }
     return result[fileName];
-    }
+  }
 }
 
 export default InvertedIndex;

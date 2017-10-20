@@ -8,7 +8,7 @@ Elasticsearch uses a structure called an inverted index, which is designed to al
 For example, let’s say we have two documents, each with a content field containing the following:
 
     The quick brown fox jumped over the lazy dog
-    Quick brown foxes leap over lazy dogs in summer 
+    Quick brown foxes leap over lazy dogs in summer
 
 To create an inverted index, we first split the content field of each document into separate words (which we call terms, or tokens), create a sorted list of all the unique terms, and then list in which document each term appears. 
 
@@ -28,4 +28,6 @@ To create an inverted index, we first split the content field of each document i
 - Create a ".env" file in the root directory of your repository and set ```PORT = < port of your choice >```
 - In your terminal, type ```npm start``` to start the server
 - launch the postman and create a post request, using ```localhost:(port)/api/create```, in the body section, set ```key``` to ```file``` choose ```File``` in the option and upload your JSON files, click ```SEND``` to create your indices.
-- To search for already created indices 
+- To search for already created indices, using ```localhost:(port)/api/search```, in the body section, set ```key``` to ```terms```, choose ```x-www-form-urlencoded``` and set ```value``` to the term you want to search for in the uploaded book.
+
+NOTE: This API does not persist data, once you restart the server, the data get losts
